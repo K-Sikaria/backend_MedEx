@@ -1,8 +1,6 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
-const Schema = mongoose.Schema;
-
-const slotSchema = new Schema({
+const slotSchema = new mongoose.Schema({
   slotTime: { 
     type: String, 
     require: true 
@@ -11,8 +9,8 @@ const slotSchema = new Schema({
     type: String, 
     require: true 
   }, 
-}, { versionKey: false })
+}, 
+{ versionKey: false }
+);
 
-const slotModel = mongoose.model('user', slotSchema);
-
-module.exports = slotModel;
+export default mongoose.model("user", slotSchema);

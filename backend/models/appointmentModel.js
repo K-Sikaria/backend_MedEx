@@ -1,8 +1,6 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
-const Schema = mongoose.Schema;
-
-const appointmentSchema = new Schema({
+const appointmentSchema = new mongoose.Schema({
   email: { 
     type: String, 
     require: true 
@@ -19,8 +17,7 @@ const appointmentSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId, 
     ref: 'slot'
   }
-}, { versionKey: false })
+}, 
+{ versionKey: false });
 
-const appointmentModel = mongoose.model('appointment', appointmentSchema);
-
-module.exports = appointmentModel;
+export default mongoose.model("appointment", appointmentSchema);
